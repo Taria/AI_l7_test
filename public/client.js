@@ -1,3 +1,8 @@
+/* 
+Copyright 2018 Google LLC.
+SPDX-License-Identifier: Apache-2.0
+*/
+
 const apiUrl = 'https://api.thecatapi.com/v1/images/search?limit=50';
 const tpl = document.querySelector('template').content;
 const container = document.querySelector('ul');
