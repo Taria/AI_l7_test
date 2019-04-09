@@ -1,3 +1,5 @@
+"use strict";
+
 /* 
 Copyright 2018 Google LLC
 
@@ -13,28 +15,26 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
+var apiUrl = 'https://cat-api-237122.appspot.com/';
+var tpl = document.querySelector('template').content;
+var container = document.querySelector('ul');
+var page = 0;
 
-const apiUrl = 'https://cat-api-237122.appspot.com/';
-const tpl = document.querySelector('template').content;
-const container = document.querySelector('ul');
-
-let page = 0;
-
-function init () {
-  fetch(apiUrl + page)
-  .then(response => response.json())
-  .then(cats => {
+function init() {
+  fetch(apiUrl + page).then(function (response) {
+    return response.json();
+  }).then(function (cats) {
     container.innerHTML = '';
-    cats
-      .map(cat => {
-        const li = document.importNode(tpl, true);
-        li.querySelector('img').src = 'https://cat-api-237122.appspot.com/' + cat.url;
-        return li;
-      }).forEach(li => container.appendChild(li));
+    cats.map(function (cat) {
+      var li = document.importNode(tpl, true);
+      li.querySelector('img').src = 'https://cat-api-237122.appspot.com/' + cat.url;
+      return li;
+    }).forEach(function (li) {
+      return container.appendChild(li);
+    });
   });
-  page = (page + 1 % 6);
+  page = page + 1 % 6;
 }
 
 init();
-
 document.querySelector('button').addEventListener('click', init);
