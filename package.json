@@ -4,14 +4,13 @@
   "//3": "updating this file will download and update your packages",
   "name": "hello-express",
   "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "Lots of cat pictures!",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4",
-    "rendertron-middleware": "^0.1.5"
+    "express": "^4.16.4"
   },
   "engines": {
     "node": "10.x"
