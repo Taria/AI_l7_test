@@ -14,21 +14,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-const apiUrl = 'https://cat-api-237122.appspot.com/';
+const apiUrl = 'https://cat-api-237122.appspot.com';
 const tpl = document.querySelector('template').content;
 const container = document.querySelector('ul');
 
 let page = 0;
 
 function init () {
-  fetch(apiUrl + page)
+  fetch(`${apiUrl}/${page}`)
   .then(response => response.json())
   .then(cats => {
     container.innerHTML = '';
     cats
       .map(cat => {
         const li = document.importNode(tpl, true);
-        li.querySelector('img').src = 'https://cat-api-237122.appspot.com/' + cat.url;
+        li.querySelector('img').src = apiUrl + cat.url;
         return li;
       }).forEach(li => container.appendChild(li));
   });
