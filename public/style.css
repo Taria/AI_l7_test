@@ -36,6 +36,7 @@ ul {
 
 li {
   display: block;
+  min-height: 30vw;
 }
 
 li img {
