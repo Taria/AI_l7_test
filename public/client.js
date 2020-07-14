@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-const apiUrl = 'https://cat-api-237122.appspot.com';
+const apiUrl = 'https://cats-api-demo.ew.r.appspot.com';
 const tpl = document.querySelector('template').content;
 const container = document.querySelector('ul');
 
