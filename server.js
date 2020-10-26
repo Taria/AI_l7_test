@@ -15,10 +15,10 @@ limitations under the License.
 // load dependencies
 const express = require('express');
 const app = express();
-
+const rendertron = require('rendertron-middleware');
 const PORT = process.env.PORT || 8080;
 const DIST_FOLDER = process.cwd() + '/public';
-const rendertron = require('rendertron-middleware');
+
 const BOTS = rendertron.botUserAgents.concat('googlebot');
 const BOT_UA_PATTERN = new RegExp(BOTS.join('|'), 'i');
 
