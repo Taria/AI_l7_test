@@ -22,17 +22,15 @@ const DIST_FOLDER = process.cwd() + '/public';
 const BOTS = rendertron.botUserAgents.concat('googlebot');
 const BOT_UA_PATTERN = new RegExp(BOTS.join('|'), 'i');
 
-
-
 app.set('view engine', 'html');
-
-// Static Assets
-app.get('*.*', express.static('public'));
 
 app.use(rendertron.makeMiddleware({
   proxyUrl: 'https://myproject7-293720.appspot.com/render',
   userAgentPattern: BOT_UA_PATTERN
 }));
+
+// Static Assets
+app.get('*.*', express.static('public'));
 
 // Point all routes to index...
 app.get('*', (req, res) => {
