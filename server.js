@@ -15,21 +15,24 @@ limitations under the License.
 // load dependencies
 const express = require('express');
 const app = express();
+
+const PORT = process.env.PORT || 8080;
+const DIST_FOLDER = process.cwd() + '/public';
 const rendertron = require('rendertron-middleware');
 const BOTS = rendertron.botUserAgents.concat('googlebot');
 const BOT_UA_PATTERN = new RegExp(BOTS.join('|'), 'i');
-const PORT = process.env.PORT || 8080;
-const DIST_FOLDER = process.cwd() + '/public';
 
-app.use(rendertron.makeMiddleware({
-  proxyUrl: 'https://myproject7-293720.appspot.com/render',
-  userAgentPattern: BOT_UA_PATTERN
-}));
+
 
 app.set('view engine', 'html');
 
 // Static Assets
 app.get('*.*', express.static('public'));
+
+app.use(rendertron.makeMiddleware({
+  proxyUrl: 'https://myproject7-293720.appspot.com/render',
+  userAgentPattern: BOT_UA_PATTERN
+}));
 
 // Point all routes to index...
 app.get('*', (req, res) => {
