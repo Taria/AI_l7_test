@@ -10,7 +10,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "rendertron-middleware": "^0.1.5"
   },
   "engines": {
     "node": "10.x"
